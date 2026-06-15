@@ -1,0 +1,107 @@
+{
+  "title": "Buzzzy Bee's Night Out",
+  "pages": [
+    {
+      "page_number": 0,
+      "content": "This is Buzzzy Bee's Night Out. This lovely story was written by Carol Moore and illustrated by Dan Wetzel.",
+      "image": {
+        "path": "./books/buzz_bee_night_out/images/page_000.png",
+        "filename": "page_000.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page000.wav",
+        "filename": "page000.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 1,
+      "content": "Look at Buzzy Bee! She is flying tonight near a hanging beehive under the moon. Guess what? Buzzy Bee is not like other bees. Other bees only find their honey during the day, but look how she does it at night!",
+      "image": {
+        "path": "./books/buzz_bee_night_out/images/page_001.png",
+        "filename": "page_001.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page001.wav",
+        "filename": "page001.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 2,
+      "content": "Oh wow, check out this spot! We see a green frog sitting on a lily pad. Next to him is a beautiful white and pink night lily. The book reminds us that these lovely night lilies taste yummy.",
+      "image": {
+        "path": "./books/buzz_bee_night_out/images/page_002.png",
+        "filename": "page_002.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page002.wav",
+        "filename": "page002.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 3,
+      "content": "Look at the yellow bee floating near a big white flower blooming right on a cactus against a deep purple background. It says, 'This flower isn't bad.' Maybe it is just perfect for her.",
+      "image": {
+        "path": "./books/buzz_bee_night_out/images/page_003.png",
+        "filename": "page_003.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page003.wav",
+        "filename": "page003.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 4,
+      "content": "Oh dear! A cartoon bee flies through the dark blue night sky toward a glowing white flower, but the little bee seems quite confused. It asks, 'Uh oh. Where am I?'",
+      "image": {
+        "path": "./books/buzz_bee_night_out/images/page_004.png",
+        "filename": "page_004.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page004.wav",
+        "filename": "page004.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 5,
+      "content": "Look at this big rescue! The bee is saved by two smaller dragonflies against the dark purple sky. It looks like someone wrote, 'Rescued again.'",
+      "image": {
+        "path": "./books/buzz_bee_night_out/images/page_005.png",
+        "filename": "page_005.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page005.wav",
+        "filename": "page005.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    }
+  ]
+}

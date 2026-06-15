@@ -1,0 +1,294 @@
+{
+  "title": "The Robot Bedtime Book",
+  "pages": [
+    {
+      "page_number": 0,
+      "content": "Hello! This is The Robot Bedtime Book. Only robots are allowed in here! To play along and get ready for sleep, we need to pretend we talk like a robot, move like a robot, and most importantly of all, fall asleep like a robot.",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_000.png",
+        "filename": "page_000.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page000.wav",
+        "filename": "page000.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 1,
+      "content": "Look at the blue robot asking us, \"Are you a robot? Only robots are allowed in here.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_001.png",
+        "filename": "page_001.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page001.wav",
+        "filename": "page001.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 2,
+      "content": "The friendly robot asks if we want to make noises together. Can we make sounds like Bleep! Clunk! Tucka-tucka ting! Meeeecorp!",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_002.png",
+        "filename": "page_002.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page002.wav",
+        "filename": "page002.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 3,
+      "content": "The robot listens and says happily, \"Wow, those are good robot noises.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_003.png",
+        "filename": "page_003.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page003.wav",
+        "filename": "page003.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 4,
+      "content": "Two robots meet! An orange robot asks, \"Hey, is that a robot?!\" And the blue robot replies, \"Well, they made robot noises with me...\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_004.png",
+        "filename": "page_004.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page004.wav",
+        "filename": "page004.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 5,
+      "content": "They are chatting about more sounds. The orange robot wonders, \"Even CLUNK?\" And the blue robot gives a knowing nod and says, \"Yep.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_005.png",
+        "filename": "page_005.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page005.wav",
+        "filename": "page005.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 6,
+      "content": "The robot asks another question: \"You can make noises, but can you move like a robot?\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_006.png",
+        "filename": "page_006.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page006.wav",
+        "filename": "page006.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 7,
+      "content": "It watches our moves carefully and whispers, \"... Those moves are even better than mine.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_007.png",
+        "filename": "page_007.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page007.wav",
+        "filename": "page007.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 8,
+      "content": "Three friends gather. A green robot asks, \"Hey, is that a robot?\" And the blue and orange robots reply together, \"We think so.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_008.png",
+        "filename": "page_008.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page008.wav",
+        "filename": "page008.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 9,
+      "content": "These three friendly aliens are very curious! They seem to know something special. One whispers softly, \"I know how to find out.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_009.png",
+        "filename": "page_009.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page009.wav",
+        "filename": "page009.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 10,
+      "content": "Then a green robot announces a secret rule for bedtime: \"The one thing robots do best is go to sleep.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_010.png",
+        "filename": "page_010.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page010.wav",
+        "filename": "page010.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 11,
+      "content": "They are starting their winding down. One friend tells us, \"We will show you first.\" And another yawns sweetly and says, \"I am getting sleepy...\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_011.png",
+        "filename": "page_011.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page011.wav",
+        "filename": "page011.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 12,
+      "content": "The robots start powering down now! One of them murmurs, \"I am a sleepy robot, powering down.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_012.png",
+        "filename": "page_012.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page012.wav",
+        "filename": "page012.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 13,
+      "content": "They all get softer and quieter. They whisper, \"I am a sleepy robot, powering down.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_013.png",
+        "filename": "page_013.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page013.wav",
+        "filename": "page013.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 14,
+      "content": "The friendly robots settle into deep rest. Together they whisper softly, \"I am a sleepy robot, powering down.\"",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_014.png",
+        "filename": "page_014.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page014.wav",
+        "filename": "page014.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 15,
+      "content": "They are all still and quiet now, ready for sweet dreams.",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_015.png",
+        "filename": "page_015.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page015.wav",
+        "filename": "page015.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 16,
+      "content": "And finally, the book turns to you. It says, \"Your turn.\" Now it is your turn to be sleepy too!",
+      "image": {
+        "path": "./books/the_robot_bedtime_book/images/page_016.png",
+        "filename": "page_016.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page016.wav",
+        "filename": "page016.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    }
+  ]
+}

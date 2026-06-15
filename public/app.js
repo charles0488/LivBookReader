@@ -1,6 +1,6 @@
-const bookId = "doing_my_chores";
-
 const elements = {
+  shelf: document.querySelector("#bookShelf"),
+  shelfCount: document.querySelector("#bookShelfCount"),
   title: document.querySelector("#bookTitle"),
   pageCount: document.querySelector("#pageCount"),
   image: document.querySelector("#pageImage"),
@@ -16,7 +16,9 @@ const elements = {
   status: document.querySelector("#saveStatus")
 };
 
+let books = [];
 let book;
+let bookId;
 let currentIndex = 0;
 let isReading = false;
 let isEditing = false;
@@ -24,7 +26,16 @@ let dirty = false;
 let statusTimer;
 
 function assetPath(asset) {
-  return asset?.path?.replace(/^\.\//, "/") || "";
+  const rawPath = asset?.path?.replace(/^\.\//, "") || "";
+  if (!rawPath) {
+    return "";
+  }
+
+  if (rawPath.startsWith("books/")) {
+    return `/${rawPath}`;
+  }
+
+  return `/books/${bookId}/${rawPath}`;
 }
 
 function audioPath(page) {
@@ -47,8 +58,16 @@ function setStatus(message) {
 }
 
 function updateNavigation() {
-  elements.previous.disabled = currentIndex === 0;
-  elements.next.disabled = currentIndex === book.pages.length - 1;
+  const hasBook = Boolean(book);
+  elements.previous.disabled = !hasBook || currentIndex === 0;
+  elements.next.disabled = !hasBook || currentIndex === book.pages.length - 1;
+  elements.play.disabled = !hasBook;
+  elements.edit.disabled = !hasBook;
+  elements.save.disabled = !hasBook;
+  if (!hasBook) {
+    return;
+  }
+
   elements.play.textContent = isReading ? "Pause" : "Play";
   elements.edit.textContent = isEditing ? "Close" : "Edit";
   elements.edit.setAttribute("aria-expanded", String(isEditing));
@@ -84,6 +103,54 @@ function renderPage({ playAudio = isReading } = {}) {
     elements.audio.pause();
     elements.audio.currentTime = 0;
   }
+}
+
+function renderShelf() {
+  elements.shelfCount.textContent = `${books.length} ${books.length === 1 ? "book" : "books"}`;
+  elements.shelf.replaceChildren(
+    ...books.map((shelfBook) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "book-card";
+      button.dataset.bookId = shelfBook.id;
+      button.setAttribute("aria-pressed", String(shelfBook.id === bookId));
+
+      const cover = document.createElement("img");
+      cover.src = assetPathForBook(shelfBook.id, shelfBook.cover);
+      cover.alt = "";
+      cover.loading = "lazy";
+
+      const title = document.createElement("span");
+      title.className = "book-card-title";
+      title.textContent = shelfBook.title;
+
+      const meta = document.createElement("span");
+      meta.className = "book-card-meta";
+      meta.textContent = `${shelfBook.pageCount} pages`;
+
+      button.append(cover, title, meta);
+      button.addEventListener("click", () => {
+        if (shelfBook.id !== bookId) {
+          selectBook(shelfBook.id);
+        }
+      });
+
+      return button;
+    })
+  );
+}
+
+function assetPathForBook(nextBookId, asset) {
+  const rawPath = asset?.path?.replace(/^\.\//, "") || "";
+  if (!rawPath) {
+    return "";
+  }
+
+  if (rawPath.startsWith("books/")) {
+    return `/${rawPath}`;
+  }
+
+  return `/books/${nextBookId}/${rawPath}`;
 }
 
 async function playCurrentAudio() {
@@ -154,6 +221,46 @@ async function saveCurrentPage() {
   }
 }
 
+async function selectBook(nextBookId, { updateUrl = true } = {}) {
+  pauseAudio();
+  setEditingMode(false);
+  bookId = nextBookId;
+  book = null;
+  currentIndex = 0;
+  dirty = false;
+  elements.title.textContent = "Loading...";
+  elements.pageCount.textContent = "";
+  elements.image.removeAttribute("src");
+  elements.image.alt = "";
+  elements.content.value = "";
+  updateNavigation();
+  renderShelf();
+
+  try {
+    const response = await fetch(`/api/books/${bookId}`);
+    if (!response.ok) {
+      throw new Error("Book not found.");
+    }
+    book = await response.json();
+    book.pages.sort((a, b) => a.page_number - b.page_number);
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("book", bookId);
+      window.history.replaceState({}, "", url);
+    }
+    renderPage({ playAudio: false });
+    renderShelf();
+  } catch {
+    elements.title.textContent = "Could not load book";
+    elements.pageCount.textContent = "";
+    elements.save.disabled = true;
+    elements.play.disabled = true;
+    elements.previous.disabled = true;
+    elements.next.disabled = true;
+    elements.edit.disabled = true;
+  }
+}
+
 elements.previous.addEventListener("click", () => {
   goPrevious({ playAudio: isReading });
 });
@@ -212,20 +319,30 @@ document.addEventListener("keydown", (event) => {
 
 async function init() {
   try {
-    const response = await fetch(`/api/books/${bookId}`);
+    const response = await fetch("/api/books");
     if (!response.ok) {
-      throw new Error("Book not found.");
+      throw new Error("Books not found.");
     }
-    book = await response.json();
-    book.pages.sort((a, b) => a.page_number - b.page_number);
-    renderPage({ playAudio: false });
+    books = await response.json();
+    renderShelf();
+    const requestedBookId = new URLSearchParams(window.location.search).get("book");
+    const firstBookId = books.some((shelfBook) => shelfBook.id === requestedBookId)
+      ? requestedBookId
+      : books[0]?.id;
+
+    if (!firstBookId) {
+      throw new Error("No books found.");
+    }
+
+    await selectBook(firstBookId, { updateUrl: Boolean(requestedBookId) });
   } catch {
-    elements.title.textContent = "Could not load book";
+    elements.title.textContent = "Could not load bookshelf";
     elements.pageCount.textContent = "";
     elements.save.disabled = true;
     elements.play.disabled = true;
     elements.previous.disabled = true;
     elements.next.disabled = true;
+    elements.edit.disabled = true;
   }
 }
 

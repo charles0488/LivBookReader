@@ -8,6 +8,14 @@
   </head>
   <body>
     <main class="reader-shell">
+      <aside class="bookshelf" aria-label="Bookshelf">
+        <div class="bookshelf-heading">
+          <h1>Bookshelf</h1>
+          <p id="bookShelfCount"></p>
+        </div>
+        <div id="bookShelf" class="book-grid" aria-live="polite"></div>
+      </aside>
+
       <section class="stage" aria-label="Book page">
         <div class="book-meta">
           <p id="bookTitle" class="book-title">Loading...</p>

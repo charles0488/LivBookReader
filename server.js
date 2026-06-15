@@ -1,5 +1,5 @@
 import { createServer } from "node:http";
-import { readFile, rename, stat, unlink, writeFile } from "node:fs/promises";
+import { readdir, readFile, rename, stat, unlink, writeFile } from "node:fs/promises";
 import { createReadStream } from "node:fs";
 import { execFile } from "node:child_process";
 import path from "node:path";
@@ -95,9 +95,39 @@ async function readRequestBody(req) {
 }
 
 async function loadBook(bookId) {
+  if (!/^[a-zA-Z0-9_-]+$/.test(bookId)) {
+    throw new Error("Invalid book id.");
+  }
+
   const bookPath = path.join(booksDir, bookId, "book.json");
   const raw = await readFile(bookPath, "utf8");
   return { book: JSON.parse(raw), bookPath };
+}
+
+async function listBooks() {
+  const entries = await readdir(booksDir, { withFileTypes: true });
+  const books = await Promise.all(
+    entries
+      .filter((entry) => entry.isDirectory())
+      .map(async (entry) => {
+        try {
+          const { book } = await loadBook(entry.name);
+          const pages = [...(book.pages || [])].sort((a, b) => a.page_number - b.page_number);
+          return {
+            id: entry.name,
+            title: book.title || entry.name,
+            pageCount: pages.length,
+            cover: pages[0]?.image || null
+          };
+        } catch {
+          return null;
+        }
+      })
+  );
+
+  return books
+    .filter(Boolean)
+    .sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: "base" }));
 }
 
 async function saveBook(bookPath, book) {
@@ -116,21 +146,24 @@ async function removeIfExists(filePath) {
   }
 }
 
-function audioFilePath(page) {
+function audioFilePath(bookId, page) {
   const audioPath = page.audio?.path;
   if (!audioPath) {
     throw new Error("Page has no audio path.");
   }
 
-  const resolved = path.resolve(__dirname, audioPath.replace(/^\.\//, ""));
+  const normalizedAudioPath = audioPath.replace(/^\.\//, "");
+  const resolved = normalizedAudioPath.startsWith("books/")
+    ? path.resolve(__dirname, normalizedAudioPath)
+    : path.resolve(booksDir, bookId, normalizedAudioPath);
   if (!resolved.startsWith(booksDir)) {
     throw new Error("Audio path is outside the books folder.");
   }
   return resolved;
 }
 
-async function synthesizeVoice(text, page) {
-  const targetPath = audioFilePath(page);
+async function synthesizeVoice(bookId, text, page) {
+  const targetPath = audioFilePath(bookId, page);
   const tmpBase = `${targetPath}.${Date.now()}`;
   const tmpAiff = `${tmpBase}.aiff`;
   const tmpWav = `${tmpBase}.wav`;
@@ -157,6 +190,11 @@ async function synthesizeVoice(text, page) {
 }
 
 async function handleApi(req, res) {
+  if (req.method === "GET" && req.url.match(/^\/api\/books\/?$/)) {
+    sendJson(res, 200, await listBooks());
+    return true;
+  }
+
   const bookMatch = req.url.match(/^\/api\/books\/([^/?#]+)$/);
   const pageMatch = req.url.match(/^\/api\/books\/([^/?#]+)\/pages\/(\d+)$/);
 
@@ -184,7 +222,7 @@ async function handleApi(req, res) {
     }
 
     page.content = body.content;
-    await synthesizeVoice(body.content, page);
+    await synthesizeVoice(bookId, body.content, page);
     await saveBook(bookPath, book);
     sendJson(res, 200, { ok: true, page, audioUpdatedAt: Date.now() });
     return true;

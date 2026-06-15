@@ -1,0 +1,192 @@
+{
+  "title": "I Love My Mom",
+  "pages": [
+    {
+      "page_number": 0,
+      "content": "Look at the cover! It's called I Love My Mom. This beautiful book is about how much we all love our moms! On this lovely illustration, Mom is helping her daughter learn to ride a bicycle under a clear blue sky.",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_000.png",
+        "filename": "page_000.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page000.wav",
+        "filename": "page000.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 1,
+      "content": "On page one, they are walking hand-in-hand through a charming village. The book tells us that Mom works so hard all the time! And guess what? Little hands learn how to do wonderful things just by following Mommy's example!",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_001.png",
+        "filename": "page_001.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page001.wav",
+        "filename": "page001.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 2,
+      "content": "Next up is a happy cooking scene in the kitchen! The mom and daughter are smiling while mixing ingredients together. Mom says she is a great cook, showing her little one how to make them yummy lunch.",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_002.png",
+        "filename": "page_002.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page002.wav",
+        "filename": "page002.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 3,
+      "content": "Oh look at this beautiful garden! They are planting colorful flowers. The mom tells us she loves taking care of plants and shows her daughter how to keep all the lovely blossoms nice and healthy.",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_003.png",
+        "filename": "page_003.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page003.wav",
+        "filename": "page003.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 4,
+      "content": "This page helps us see that we can sometimes find little technical surprises in our storybook!",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_004.png",
+        "filename": "page_004.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page004.wav",
+        "filename": "page004.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 5,
+      "content": "Time for some family chores! They are hanging up clothes to dry outside under the bright sun. The young girl is helping out too! She feels so grown up, and look how wonderfully proud Mom smiles.",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_005.png",
+        "filename": "page_005.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page005.wav",
+        "filename": "page005.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 6,
+      "content": "Mom is teaching her little one a brand new skillriding a bicycle! Sometimes it can feel scary at first, but guess who is right there? Mommy helping every step of the way!",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_006.png",
+        "filename": "page_006.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page006.wav",
+        "filename": "page006.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 7,
+      "content": "Look at that joyful moment! She is riding her bike so happily and confidently. She shouts to her mom, 'Look, I can ride! Let me show you!' And just as the book says, Mom looks so incredibly proud!",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_007.png",
+        "filename": "page_007.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page007.wav",
+        "filename": "page007.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 8,
+      "content": "Now for a wonderfully cozy time. Mom is sitting down with her little one and reading a magical storybook. What an adventure! It's a whole town full of cute cartoon animals that the child just loves!",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_008.png",
+        "filename": "page_008.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page008.wav",
+        "filename": "page008.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 9,
+      "content": "Look how responsible she is! In the soft moonlight, the girl is even learning to make her own bed. Mom watches with a big smile, feeling wonderfully proud of all her accomplishments.",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_009.png",
+        "filename": "page_009.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page009.wav",
+        "filename": "page009.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    },
+    {
+      "page_number": 10,
+      "content": "And finally, it is time for sweet dreams and deep cuddles! Mommy tucks her child into bed with the biggest hugs. The little one whispers softly, 'Thank you, Mom. I love you.' And she knows Mom is truly the best mom in the whole world!",
+      "image": {
+        "path": "./books/i_love_my_mom/images/page_010.png",
+        "filename": "page_010.png",
+        "content_type": "image/png"
+      },
+      "audio": {
+        "path": "voices/page010.wav",
+        "filename": "page010.wav",
+        "content_type": "audio/wav",
+        "provider": "coqui_xtts_v2",
+        "language": "en",
+        "model": "tts_models/multilingual/multi-dataset/xtts_v2"
+      }
+    }
+  ]
+}

@@ -22,7 +22,8 @@ http://<your-lan-ip>:3000/
 
 ## Features
 
-- Reads `books/doing_my_chores/book.json`.
+- Lists every valid book folder under `books/`.
+- Opens books from a visual bookshelf.
 - Displays each page image one at a time.
 - Plays each page's WAV narration.
 - Auto-advances after audio ends.
