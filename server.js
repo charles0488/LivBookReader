@@ -13,6 +13,7 @@ const port = Number(process.env.PORT || 3000);
 const execFileAsync = promisify(execFile);
 const defaultTtsModel = "tts_models/multilingual/multi-dataset/xtts_v2";
 const defaultTtsLanguage = "en";
+const defaultAudioConvertCommand = process.env.AUDIO_CONVERT_COMMAND || (process.platform === "darwin" ? "/usr/bin/afconvert" : "ffmpeg");
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
@@ -205,15 +206,35 @@ function ttsSettings(book) {
   };
 }
 
+async function convertToReaderWav(inputPath, outputPath) {
+  if (path.basename(defaultAudioConvertCommand) === "ffmpeg") {
+    await execFileAsync(
+      defaultAudioConvertCommand,
+      ["-y", "-i", inputPath, "-ac", "1", "-ar", "24000", "-sample_fmt", "s16", outputPath],
+      {
+        timeout: 120_000,
+        maxBuffer: 1024 * 1024
+      }
+    );
+    return;
+  }
+
+  await execFileAsync(defaultAudioConvertCommand, ["-f", "WAVE", "-d", "LEI16@24000", inputPath, outputPath], {
+    timeout: 120_000,
+    maxBuffer: 1024 * 1024
+  });
+}
+
 async function synthesizeWithMacosSay(text, tmpAiff, tmpWav, targetPath, page, settings) {
+  if (process.platform !== "darwin") {
+    throw new Error("macos_say TTS requires macOS. Set TTS_PROVIDER=coqui_xtts_v2 in Docker.");
+  }
+
   await execFileAsync("/usr/bin/say", ["-v", settings.macosVoice, "-o", tmpAiff, text], {
     timeout: 120_000,
     maxBuffer: 1024 * 1024
   });
-  await execFileAsync("/usr/bin/afconvert", ["-f", "WAVE", "-d", "LEI16@24000", tmpAiff, tmpWav], {
-    timeout: 120_000,
-    maxBuffer: 1024 * 1024
-  });
+  await convertToReaderWav(tmpAiff, tmpWav);
   await rename(tmpWav, targetPath);
 
   page.audio.provider = "macos_say";
@@ -248,10 +269,7 @@ async function synthesizeWithCoquiXtts(bookId, text, tmpRawWav, tmpWav, targetPa
       maxBuffer: 1024 * 1024 * 10
     }
   );
-  await execFileAsync("/usr/bin/afconvert", ["-f", "WAVE", "-d", "LEI16@24000", tmpRawWav, tmpWav], {
-    timeout: 120_000,
-    maxBuffer: 1024 * 1024
-  });
+  await convertToReaderWav(tmpRawWav, tmpWav);
   await rename(tmpWav, targetPath);
 
   page.audio.provider = "coqui_xtts_v2";

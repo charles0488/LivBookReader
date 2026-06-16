@@ -1,0 +1,19 @@
+services:
+  liv-book-reader:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      TTS_PROVIDER: coqui_xtts_v2
+      TTS_SPEAKER_WAV: /app/voices/satisfaction.wav
+      TTS_LANGUAGE: en
+      TTS_MODEL: tts_models/multilingual/multi-dataset/xtts_v2
+      # Set to "1" after reviewing and accepting the XTTS model license.
+      # COQUI_TOS_AGREED: "1"
+    volumes:
+      - ./books:/app/books
+      - ./voices:/app/voices:ro
+      - livbookreader-tts-cache:/models
+
+volumes:
+  livbookreader-tts-cache:
